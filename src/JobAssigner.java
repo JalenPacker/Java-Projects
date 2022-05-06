@@ -116,6 +116,7 @@ public class JobAssigner {
 	
 			System.out.println("Job 1: ");
 			String job = input.nextLine();
+			
 			System.out.println();
 		
 			finalList.put(name, job);
