@@ -1,0 +1,40 @@
+public class DimensionConverter {
+
+		public static final int INCHES_PER_FOOT = 12;
+		public static double convertFeetToInches(double feet)
+		{
+			return feet * INCHES_PER_FOOT;
+		}
+		public static double convertInchesToFeet(double inches)
+		{
+			return inches / INCHES_PER_FOOT;
+		}
+		
+}
+
+
+import java.util.Scanner;
+public class DimensionConverterDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Enter a measurement in inches: ");
+		double inches = keyboard.nextDouble();
+    
+		double feet = DimensionConverter.convertInchesToFeet(inches);
+    
+		System.out.println(inches + " inches = " + feet + " feet.");
+    
+		System.out.print("Enter a measurement in feet: ");
+		feet = keyboard.nextDouble();
+    
+		inches = DimensionConverter.convertFeetToInches(feet);
+    
+		System.out.println(feet + " feet = " + inches + " inches.");
+		
+		keyboard.close();
+	}
+
+}
