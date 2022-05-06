@@ -1,7 +1,5 @@
 // Verifies if the inputted word is a palindrome or not.
 
-// Jalen Packer
-
 import java.util.Scanner;
 public class Palindrome {
 
