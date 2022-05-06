@@ -4,9 +4,9 @@ public class InverseMatrixPart1 {
 
 	public static int findDeterminant(int[][] a)
 	{
-			return a[0][0] * a[1][1] - a[0][1] * a[1][0];
+		return a[0][0] * a[1][1] - a[0][1] * a[1][0];
 	}
-  
+	
 	public static void main(String[] args) {
 		
 		Scanner input = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class InverseMatrixPart1 {
 		int d = input.nextInt();
 			
 		int[][] matrix = { {a, b},
-						           {c, d} };
+				  		   {c, d} };
 
 		System.out.print("Your matrix: ");
 		System.out.println();
@@ -45,9 +45,4 @@ public class InverseMatrixPart1 {
 		}
 		input.close();
 	}
-			
-		public static int findDeterminant(int[][] a)
-		{
-			return a[0][0] * a[1][1] - a[0][1] * a[1][0];
-		}
-	}
+}
