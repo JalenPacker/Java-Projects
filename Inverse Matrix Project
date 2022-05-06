@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class InverseMatrixPart1 {
+
+	public static int findDeterminant(int[][] a)
+	{
+			return a[0][0] * a[1][1] - a[0][1] * a[1][0];
+	}
+  
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+			
+		System.out.println("You will be entering a 2x2 matrix");
+		System.out.print("Enter row 1 of your matrix separated by spaces: ");
+		int a = input.nextInt();
+		int b = input.nextInt();
+		
+		System.out.print("Enter row 2 of your matrix separated by spaces: ");
+		int c = input.nextInt();
+		int d = input.nextInt();
+			
+		int[][] matrix = { {a, b},
+						           {c, d} };
+
+		System.out.print("Your matrix: ");
+		System.out.println();
+		for(int i = 0; i<matrix.length; i++)
+		{
+			for(int j = 0; j<matrix[i].length; j++)
+			{
+				System.out.print(matrix[i][j] + " ");
+			}
+			System.out.println();
+		}
+		int f = findDeterminant(matrix);
+			
+		if(f != 0)
+		{
+			System.out.println("is invertible.");
+		}
+		else
+		{
+			System.out.println("is not invertible.");
+		}
+		input.close();
+	}
+			
+		public static int findDeterminant(int[][] a)
+		{
+			return a[0][0] * a[1][1] - a[0][1] * a[1][0];
+		}
+	}
