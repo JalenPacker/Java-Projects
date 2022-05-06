@@ -22,26 +22,24 @@ public class JobAssigner {
 
 		// Randomizes the values of the HashMap (the jobs)
 		for(int i = 0; i<valuesArr.length; i++)
-		{
 			valuesArr[i] = i;
-		}
+		
 		Random randomGenerator = new Random();
         int randomIndex;
         int randomValue;
 
-        for(int i = 0; i<valuesArr.length; ++i)
-        {
-             randomIndex = randomGenerator.nextInt(valuesArr.length);
-             randomValue = valuesArr[randomIndex];
-             valuesArr[randomIndex] = valuesArr[i];
-             valuesArr[i] = randomValue;
-        }
-		
-        // Assign the randomized order to the master HashMap
-		for(int i = 0; i<valuesArr.length; i++)
+		for(int i = 0; i<valuesArr.length; ++i)
 		{
-			strMap.put(keys.get(i), values.get(valuesArr[i]));
+			randomIndex = randomGenerator.nextInt(valuesArr.length);
+			randomValue = valuesArr[randomIndex];
+			valuesArr[randomIndex] = valuesArr[i];
+			valuesArr[i] = randomValue;
 		}
+		
+		// Assign the randomized order to the master HashMap
+		for(int i = 0; i<valuesArr.length; i++)
+			strMap.put(keys.get(i), values.get(valuesArr[i]));
+			
 		return strMap;
 	}
 	
@@ -53,10 +51,10 @@ public class JobAssigner {
 		
 		// Neatly display the names and jobs
 		System.out.println("\n| RANDOMIZED JOBS FOR THIS MONTH |\n");
+		
 		for(String i : result.keySet())
-		{
 			System.out.println(i + "\t:::\t" + result.get(i) + "\n");
-		}
+		
 		System.out.println("| ALL WHO LIVE WITH THE PEOPLE LISTED HAVE THE SAME / ASSISTING JOBS |\n");
 	}
 	
@@ -94,9 +92,8 @@ public class JobAssigner {
 				
 		// Ask user if they would like to make a custom list
 		// If not, randomize the aforementioned HashMap of names and jobs
-		String customizedOrNot;
 		System.out.println("\nWould you like to enter a customized list? (Y / N):");
-		customizedOrNot = input.nextLine();
+		String customizedOrNot = input.nextLine();
 		
 		switch (customizedOrNot) {
 		case "N":
