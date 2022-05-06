@@ -25,8 +25,8 @@ public class JobAssigner {
 			valuesArr[i] = i;
 		
 		Random randomGenerator = new Random();
-        int randomIndex;
-        int randomValue;
+        	int randomIndex;
+		int randomValue;
 
 		for(int i = 0; i<valuesArr.length; ++i)
 		{
