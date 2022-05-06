@@ -1,0 +1,55 @@
+// Verifies if the inputted word is a palindrome or not.
+
+// Jalen Packer
+
+import java.util.Scanner;
+public class Palindrome {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// Names the scanner
+		Scanner input = new Scanner(System.in);
+		
+		// Asks the user for a word and stores it
+		System.out.print("Enter a word and I will see if it is a palindrome: ");
+		String unalteredWord = input.nextLine();
+		System.out.println();
+		
+		// Reverse loops through the inputted word while storing the characters
+		String reversedWord = "";
+		for(int i = unalteredWord.length()-1; i>=0; i--)
+			reversedWord += unalteredWord.charAt(i);
+		
+		// Neatly prints the original word and the reversed word
+		String temp1 = "";
+		for(int i = 0; i<unalteredWord.length(); i++)
+		{
+			temp1 += unalteredWord.charAt(i);
+			temp1 += "-";
+		}
+		temp1 = temp1.substring(0, temp1.length()-1);
+		System.out.println(temp1);
+		
+		String temp2 = "";
+		for(int i = 0; i<reversedWord.length(); i++)
+		{
+			temp2 += reversedWord.charAt(i);
+			temp2 += "-";
+		}
+		temp2 = temp2.substring(0, temp2.length()-1);
+		System.out.println(temp2);
+		
+		// Verifies if the reversed word is the same as the original word
+		// If so, it prints the word is a palindrome, if not, the word is not a palindrome
+		if(unalteredWord.equals(reversedWord))
+			System.out.println("\n'" + unalteredWord + "'" + " is a palindrome.");
+		
+		if(!(unalteredWord.equals(reversedWord)))
+			System.out.println("\n'" + unalteredWord + "' is not a palindrome.");
+		
+		// Closes the scanner
+		input.close();
+	}
+
+}
