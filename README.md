@@ -1,4 +1,4 @@
-# Job Assigner Program
+# Job Assigner Program under "src"
 # Inspired by Netflix's "The Society"
 
 In the Netflix original titled "The Society", an Orwellian teen apocalypse-esque show, one of the episodes has a former exemplary high school student now a delegated survivalist voluntarily create a program that allocates various jobs at random to all the schools' completely unsupervised students with the intent to establish structure to their crumbling, despair-imminent town. I personally felt inclined to emulate the program myself based on the Java experience I gained during high school; at this point, the most advanced coding I knew were Array Lists and a bit of recursion. A couple of years later, 2022, I stumbled upon the same program and improved it using professional, preferred program techniques  with descriptive comments and optimizing Hash Maps, switch statement statements, and for-each loops. The project attached here is the optimized version.
