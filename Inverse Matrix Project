@@ -1,30 +1,43 @@
 import java.util.Scanner;
 
-public class InverseMatrixPart1 {
+public class InverseMatrixPart2 {
 
-	public static int findDeterminant(int[][] a)
+	public static double findDeterminant(double[][] a)
 	{
 		return a[0][0] * a[1][1] - a[0][1] * a[1][0];
 	}
 	
+	public static double[][] findInverse(double[][] a)
+	{
+		double determinant = a[0][0] * a[1][1] - a[0][1] * a[1][0];
+		double[][] invertibleMatrix = { {a[1][1] / determinant}, {-1 * (a[0][1] / determinant)},
+									    {-1 * (a[1][0] / determinant)}, {a[0][0] / determinant} };
+		return invertibleMatrix;
+	}
+	
 	public static void main(String[] args) {
-		
+		// TODO Auto-generated method stub
+
 		Scanner input = new Scanner(System.in);
-			
+		
 		System.out.println("You will be entering a 2x2 matrix");
 		System.out.print("Enter row 1 of your matrix separated by spaces: ");
-		int a = input.nextInt();
-		int b = input.nextInt();
+		double num1 = input.nextDouble();
+		double num2 = input.nextDouble();
 		
 		System.out.print("Enter row 2 of your matrix separated by spaces: ");
-		int c = input.nextInt();
-		int d = input.nextInt();
-			
-		int[][] matrix = { {a, b},
-				  		   {c, d} };
+		double num3 = input.nextDouble();
+		double num4 = input.nextDouble();
+		
+		double a = num1;
+		double b = num2;
+		double c = num3;
+		double d = num4;
+				
+		double[][] matrix = { {a, b},
+						      {c, d} };
 
-		System.out.print("Your matrix: ");
-		System.out.println();
+		System.out.println("Your matrix: ");
 		for(int i = 0; i<matrix.length; i++)
 		{
 			for(int j = 0; j<matrix[i].length; j++)
@@ -33,11 +46,14 @@ public class InverseMatrixPart1 {
 			}
 			System.out.println();
 		}
-		int f = findDeterminant(matrix);
-			
-		if(f != 0)
+		
+		double f = findDeterminant(matrix);
+				
+		if(f == 0)
 		{
 			System.out.println("is invertible.");
+			System.out.println("Its inverse is");
+			System.out.println(findInverse(matrix));
 		}
 		else
 		{
@@ -45,4 +61,5 @@ public class InverseMatrixPart1 {
 		}
 		input.close();
 	}
+	
 }
