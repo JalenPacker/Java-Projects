@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
-public class InverseMatrixPart2 {
+public class InverseMatrix {
 
+	// Create a method to calculate the determinant based on a given 2x2 matrix
 	public static double findDeterminant(double[][] a)
 	{
 		return a[0][0] * a[1][1] - a[0][1] * a[1][0];
 	}
-	
+	// Create a method to invert a given 2x2 matrix
 	public static double[][] findInverse(double[][] a)
 	{
 		double determinant = a[0][0] * a[1][1] - a[0][1] * a[1][0];
@@ -16,27 +17,31 @@ public class InverseMatrixPart2 {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		// Set up Scanner
 		Scanner input = new Scanner(System.in);
 		
+		// Ask and receive the first row of the user's 2x2 matrix
 		System.out.println("You will be entering a 2x2 matrix");
 		System.out.print("Enter row 1 of your matrix separated by spaces: ");
 		double num1 = input.nextDouble();
 		double num2 = input.nextDouble();
 		
+		// Ask and receive the second row of the user's 2x2 matrix
 		System.out.print("Enter row 2 of your matrix separated by spaces: ");
 		double num3 = input.nextDouble();
 		double num4 = input.nextDouble();
 		
+		// Assign variables accordingly
 		double a = num1;
 		double b = num2;
 		double c = num3;
 		double d = num4;
-				
+		
 		double[][] matrix = { {a, b},
 						      {c, d} };
 
+		// Display the user's matrix
 		System.out.println("Your matrix: ");
 		for(int i = 0; i<matrix.length; i++)
 		{
@@ -47,8 +52,10 @@ public class InverseMatrixPart2 {
 			System.out.println();
 		}
 		
+		// Find the determinant
 		double f = findDeterminant(matrix);
-				
+		
+		// Display the inverted matrix if possible
 		if(f == 0)
 		{
 			System.out.println("is invertible.");
@@ -56,9 +63,8 @@ public class InverseMatrixPart2 {
 			System.out.println(findInverse(matrix));
 		}
 		else
-		{
 			System.out.println("is not invertible.");
-		}
+			
 		input.close();
 	}
 	
