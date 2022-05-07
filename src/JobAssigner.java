@@ -1,3 +1,6 @@
+// Description: Assigns random predetermined jobs to a predetermined list of names or
+//				assigns random user-inputted jobs to a list of user given names
+
 import java.util.*;
 
 public class JobAssigner {
