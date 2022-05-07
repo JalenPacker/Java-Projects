@@ -22,24 +22,26 @@ public class JobAssigner {
 
 		// Randomizes the values of the HashMap (the jobs)
 		for(int i = 0; i<valuesArr.length; i++)
-			valuesArr[i] = i;
-		
-		Random randomGenerator = new Random();
-        	int randomIndex;
-		int randomValue;
-
-		for(int i = 0; i<valuesArr.length; ++i)
 		{
-			randomIndex = randomGenerator.nextInt(valuesArr.length);
-			randomValue = valuesArr[randomIndex];
-			valuesArr[randomIndex] = valuesArr[i];
-			valuesArr[i] = randomValue;
+			valuesArr[i] = i;
 		}
+		Random randomGenerator = new Random();
+        int randomIndex;
+        int randomValue;
+
+        for(int i = 0; i<valuesArr.length; ++i)
+        {
+             randomIndex = randomGenerator.nextInt(valuesArr.length);
+             randomValue = valuesArr[randomIndex];
+             valuesArr[randomIndex] = valuesArr[i];
+             valuesArr[i] = randomValue;
+        }
 		
-		// Assign the randomized order to the master HashMap
+        // Assign the randomized order to the master HashMap
 		for(int i = 0; i<valuesArr.length; i++)
+		{
 			strMap.put(keys.get(i), values.get(valuesArr[i]));
-			
+		}
 		return strMap;
 	}
 	
@@ -51,10 +53,10 @@ public class JobAssigner {
 		
 		// Neatly display the names and jobs
 		System.out.println("\n| RANDOMIZED JOBS FOR THIS MONTH |\n");
-		
 		for(String i : result.keySet())
+		{
 			System.out.println(i + "\t:::\t" + result.get(i) + "\n");
-		
+		}
 		System.out.println("| ALL WHO LIVE WITH THE PEOPLE LISTED HAVE THE SAME / ASSISTING JOBS |\n");
 	}
 	
@@ -85,15 +87,23 @@ public class JobAssigner {
 		namesAndJobs.put("Bob", "Vehicle Keeper");
 		namesAndJobs.put("Gordon", "Trash Duty");
 		namesAndJobs.put("Daequan", "Kitchen Duty");
+		namesAndJobs.put("Blake", "Environmental Cleanup Duty");
 		namesAndJobs.put("Simmons", "Security Guard");
 		namesAndJobs.put("Donald", "Research / Escape Planner Duty");
 		namesAndJobs.put("Gregory", "Food Census Duty");
+		namesAndJobs.put("Tony", "Electronics Keeper");
+		namesAndJobs.put("Sarah", "Weapons Keeper");
 		namesAndJobs.put("Jahseh", "Shopkeeper");
-				
+		namesAndJobs.put("Zeke", "Water Maintainer");
+		namesAndJobs.put("Neil", "Activity Planner");
+		namesAndJobs.put("Aaron", "Head Chef");
+		namesAndJobs.put("Charlie", "Communications Duty");
+		
 		// Ask user if they would like to make a custom list
 		// If not, randomize the aforementioned HashMap of names and jobs
+		String customizedOrNot;
 		System.out.println("\nWould you like to enter a customized list? (Y / N):");
-		String customizedOrNot = input.nextLine();
+		customizedOrNot = input.nextLine();
 		
 		switch (customizedOrNot) {
 		case "N":
@@ -108,25 +118,15 @@ public class JobAssigner {
 		
 			// Ask for user name and job input and add to HashMap
 			// Instantiate the following sentinel loop
-			System.out.print("Start entering the names and jobs respectively / ");
-			System.out.println("(Enter 'done' when you are finished)\n");
-		
-			System.out.println("Name 1 (Enter 'done' when finished): ");
-			String name = input.nextLine();
-	
-			System.out.println("Job 1: ");
-			String job = input.nextLine();
-			
-			System.out.println();
-		
-			finalList.put(name, job);
+			System.out.println("Start entering the names and jobs respectively\n");
 		
 			String SENTINEL = "done";
-			int count = 2;
+			int count = 1;
+			String name;
+			String job;
 		
 			// Begin the sentinel loop
-			while(name.equalsIgnoreCase(SENTINEL) != true)
-			{
+			do {
 				System.out.println("Name " + count + " (Enter 'done' when finished): ");
 				name = input.nextLine();
 			
@@ -144,8 +144,11 @@ public class JobAssigner {
 			
 				count++;
 				System.out.println();
-			}
+				
+			} while(name.equalsIgnoreCase(SENTINEL) != true);
+			
 			assignJobs(finalList);
+			
 			break;
 			
 		default: System.out.println("You did not enter a 'Y' or 'N'");
