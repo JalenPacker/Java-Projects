@@ -46,11 +46,14 @@ public class Centauri_Prime {
       // Take user input for the number of test cases
       int T = in.nextInt();
 
-      // Based on the number of test cases, do the getRuler() method accordingly
+      // Based on the number of test cases, do the getRuler() method T times
       for (int t = 1; t <= T; ++t) {
+      
+        // Receive the user-inputted string
         String kingdom = in.next();
-        System.out.println(
-            "Case #" + t + ": " + kingdom + " is ruled by " + getRuler(kingdom) + ".");
+        
+        // Print the results
+        System.out.println("Case #" + t + ": " + kingdom + " is ruled by " + getRuler(kingdom) + ".");
       }
     }
   }
