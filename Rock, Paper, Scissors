@@ -1,4 +1,4 @@
-/*Jalen Packer
+/* Jalen Packer
  * COSC 1430.001 Intro to Computer Science 1
  * Project 1
  * 29 September 2021
@@ -12,57 +12,52 @@ public class RockPaperScissor {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		// Set up Scanner
 		Scanner input = new Scanner(System.in);
+		
+		// Print a user-friendly introduction
 		System.out.println("Welcome to the game of Rock, Paper, Scissors");
 		System.out.println();
 		System.out.println("Enter a 'R' for rock, a 'P' for paper, or an 'S' for scissors");
 		
+		// Asks and receives Player 1's move
 		System.out.print("Player 1 move: ");
 		String player1 = input.nextLine();
 		
+		// Asks and receives Player 2's move
 		System.out.print("Player 2 move: ");
 		String player2 = input.nextLine();
 		
+		// Based on Player 1's and Player 2's moves, determine the winner if possible
 		if(player1.equalsIgnoreCase("R") && player2.equalsIgnoreCase("R"))
-		{
 			System.out.println("It is a tie. Nobody wins.");
-		}
+			
 		else if(player1.equalsIgnoreCase("R") && player2.equalsIgnoreCase("P"))
-		{
 			System.out.println("Paper covers rock. Player 2 wins.");
-		}
+			
 		else if(player1.equalsIgnoreCase("R") && player2.equalsIgnoreCase("S"))
-		{
 			System.out.println("Rock crushes scissors. Player 1 wins.");
-		}
+			
 		else if(player1.equalsIgnoreCase("P") && player2.equalsIgnoreCase("P"))
-		{
 			System.out.println("It is a tie. Nobody wins");
-		}
+		
 		else if(player1.equalsIgnoreCase("P") && player2.equalsIgnoreCase("R"))
-		{
 			System.out.println("Paper covers rock. Player 1 wins.");
-		}
+		
 		else if(player1.equalsIgnoreCase("P") && player2.equalsIgnoreCase("S"))
-		{
 			System.out.println("Scissors cuts paper. Player 2 wins.");
-		}
+		
 		else if(player1.equalsIgnoreCase("S") && player2.equalsIgnoreCase("S"))
-		{
 			System.out.println("It is a tie. Nobody wins.");
-		}
+		
 		else if(player1.equalsIgnoreCase("S") && player2.equalsIgnoreCase("R"))
-		{
 			System.out.println("Rock crushes scissors. Player 2 wins.");
-		}
+		
 		else if(player1.equalsIgnoreCase("S") && player2.equalsIgnoreCase("P"))
-		{
 			System.out.println("Scissors cuts paper. Player 1 wins.");
-		}
+		
 		else
-		{
 			System.out.println("You did not enter a 'R', 'P', or an 'S'");
-		}
 		
 		input.close();
 	}
