@@ -1,12 +1,16 @@
+// Create a class to convert feet to inches and inches to feet
 public class DimensionConverter {
 
+		// Create a named constant equal to the standard amount of inches in a foot
 		public static final int INCHES_PER_FOOT = 12;
-		public static double convertFeetToInches(double feet)
-		{
+		
+		// Calculate number of inches in x feet
+		public static double convertFeetToInches(double feet) {
 			return feet * INCHES_PER_FOOT;
 		}
-		public static double convertInchesToFeet(double inches)
-		{
+		
+		// Calculate number of feet in x inches
+		public static double convertInchesToFeet(double inches) {
 			return inches / INCHES_PER_FOOT;
 		}
 		
@@ -14,24 +18,33 @@ public class DimensionConverter {
 
 
 import java.util.Scanner;
+
+// Create another class to receive user input and call on the DimensionConverter class
 public class DimensionConverterDemo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		// Set up Scanner
 		Scanner keyboard = new Scanner(System.in);
+		
+		// Ask and receive user input in inches
 		System.out.println("Enter a measurement in inches: ");
 		double inches = keyboard.nextDouble();
     
+		// Call on the DimensionConverter class to convert inches to feet
 		double feet = DimensionConverter.convertInchesToFeet(inches);
     
+		// Display the number of feet in the given amount of inches
 		System.out.println(inches + " inches = " + feet + " feet.");
     
+		// Ask and receive user input in feet
 		System.out.print("Enter a measurement in feet: ");
 		feet = keyboard.nextDouble();
     
+		// Call on the DimensionConverter class to convert feet to inches
 		inches = DimensionConverter.convertFeetToInches(feet);
     
+		// Display the number of inches in the given amount of feet
 		System.out.println(feet + " feet = " + inches + " inches.");
 		
 		keyboard.close();
