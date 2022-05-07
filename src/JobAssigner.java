@@ -25,9 +25,8 @@ public class JobAssigner {
 
 		// Randomizes the values of the HashMap (the jobs)
 		for(int i = 0; i<valuesArr.length; i++)
-		{
 			valuesArr[i] = i;
-		}
+		
 		Random randomGenerator = new Random();
         int randomIndex;
         int randomValue;
@@ -42,9 +41,8 @@ public class JobAssigner {
 		
         // Assign the randomized order to the master HashMap
 		for(int i = 0; i<valuesArr.length; i++)
-		{
 			strMap.put(keys.get(i), values.get(valuesArr[i]));
-		}
+			
 		return strMap;
 	}
 	
@@ -57,9 +55,8 @@ public class JobAssigner {
 		// Neatly display the names and jobs
 		System.out.println("\n| RANDOMIZED JOBS FOR THIS MONTH |\n");
 		for(String i : result.keySet())
-		{
 			System.out.println(i + "\t:::\t" + result.get(i) + "\n");
-		}
+		
 		System.out.println("| ALL WHO LIVE WITH THE PEOPLE LISTED HAVE THE SAME / ASSISTING JOBS |\n");
 	}
 	
@@ -151,7 +148,6 @@ public class JobAssigner {
 			} while(name.equalsIgnoreCase(SENTINEL) != true);
 			
 			assignJobs(finalList);
-			
 			break;
 			
 		default: System.out.println("You did not enter a 'Y' or 'N'");
