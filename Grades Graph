@@ -2,18 +2,138 @@
  * COSC 1430.001 Intro to Computer Science 1
  * Project 4
  * 1 December 2021
- * Description: Displays an asterisk graph showing the percentage of each of the # of grades entered.
+ * Description: Displays an asterisk graph showing the percentage of each of the number of grades entered.
  */
+ 
+ // Create a class that displays the asterisk graph based on the grades given
+ public class GradesGraph {
+
+	// Create a method that sums the grades as a requirement for other calculations made later
+	public static double sum (int a, int b, int c, int d, int f)
+	{
+		int result = 0;
+		result = a + b + c + d + f;
+		return (double) result;
+	}
+	
+	// Create the base graph needed for the user to count their results
+	public static void initialize()
+	{
+		System.out.println("0         10        20        30        40        50        60        70        80        90        100%");
+		System.out.println("|         |         |         |         |         |         |         |         |         |         |");
+		System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
+	}
+	
+	// Calculate the percent of A's entered out of all the grades
+	public static double APercentage(int a, int b, int c, int d, int f)
+	{
+		double x = sum(a, b, c, d, f);
+		double result = a / x;
+		result *= 100;
+		return result;
+	}
+	// Calculate the percent of B's entered out of all the grades
+	public static double BPercentage(int a, int b, int c, int d, int f)
+	{
+		double x = sum(a, b, c, d, f);
+		double result = b / x;
+		result *= 100;
+		return result;
+	}
+	// Calculate the percent of C's entered out of all the grades
+	public static double CPercentage(int a, int b, int c, int d, int f)
+	{
+		double x = sum(a, b, c, d, f);
+		double result = c / x;
+		result *= 100;
+		return result;
+	}
+	// Calculate the percent of D's entered out of all the grades
+	public static double DPercentage(int a, int b, int c, int d, int f)
+	{
+		double x = sum(a, b, c, d, f);
+		double result = d / x;
+		result *= 100;
+		return result;
+	}
+	// Calculate the percent of F's entered out of all the grades
+	public static double FPercentage(int a, int b, int c, int d, int f)
+	{
+		double x = sum(a, b, c, d, f);
+		double result = f / x;
+		result *= 100;
+		return result;
+	}
+	
+	// Create a method that displays the asterisk graph of the user's input
+	public static void showGrades(int a, int b, int c, int d, int f)
+	{
+		// Round the grade percentages and based on the initialize() method graph, each asterisk here represents 2
+		double first = Math.round(APercentage(a, b, c, d, f));
+		first /= 2;
+		if(first % 2 != 0)
+			first += 1;
+		
+		for(int i = 0; i<=first; i++)
+			System.out.print("* ");
+		
+		System.out.println("A");
+		
+		double second = Math.round(BPercentage(a, b, c, d, f));
+		second /= 2;
+		if(second % 2 != 0)
+			second += 1;
+		
+		for(int i = 0; i<=second; i++)
+			System.out.print("* ");
+		
+		System.out.println("B");
+		
+		double third = Math.round(CPercentage(a, b, c, d, f));
+		third /= 2;
+		if(third % 2 != 0)
+			third += 1;
+		
+		for(int i = 0; i<=third; i++)
+			System.out.print("* ");
+	
+		System.out.println("C");
+		
+		double fourth = Math.round(DPercentage(a, b, c, d, f));
+		fourth /= 2;
+		if(fourth % 2 != 0)
+			fourth += 1;
+		
+		for(int i = 0; i<=fourth; i++)
+			System.out.print("* ");
+		
+		System.out.println("D");
+		
+		double fifth = Math.round(FPercentage(a, b, c, d, f));
+		fifth /= 2;
+		if(fifth % 2 != 0)
+			fifth += 1;
+			
+		for(int i = 0; i<=fifth; i++)
+			System.out.print("* ");
+		
+		System.out.println("F");
+	}
+
+}
+
 
 import java.util.Scanner;
 
+// Create a class that accepts the user's inputted grades
 public class GradesGraphDemo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		// Set up Scanner
 		Scanner input = new Scanner(System.in);
 		
+		// Ask and receive the number of each grade
 		System.out.print("Enter number of A's: ");
 		int a = input.nextInt();
 		
@@ -31,129 +151,13 @@ public class GradesGraphDemo {
 		
 		System.out.println();
 		
+		// Call on the GradesGraph class to display the referrable, base asterisk graph
 		GradesGraph.initialize();
+		
+		// Call on the GradesGraph class to display an asterisk graph based on the user input
 		GradesGraph.showGrades(a, b, c, d, f);
 		
 		input.close();
 	}
-  
-  
-public class GradesGraph {
-
-	public static double sum (int a, int b, int c, int d, int f)
-	{
-		int result = 0;
-		result = a + b + c + d + f;
-		return (double) result;
-	}
-	
-	public static void initialize()
-	{
-		System.out.println("0         10        20        30        40        50        60        70        80        90        100%");
-		System.out.println("|         |         |         |         |         |         |         |         |         |         |");
-		System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
-	}
-	
-	public static double APercentage(int a, int b, int c, int d, int f)
-	{
-		double x = sum(a, b, c, d, f);
-		double result = a / x;
-		result *= 100;
-		return result;
-	}
-	public static double BPercentage(int a, int b, int c, int d, int f)
-	{
-		double x = sum(a, b, c, d, f);
-		double result = b / x;
-		result *= 100;
-		return result;
-	}
-	public static double CPercentage(int a, int b, int c, int d, int f)
-	{
-		double x = sum(a, b, c, d, f);
-		double result = c / x;
-		result *= 100;
-		return result;
-	}
-	public static double DPercentage(int a, int b, int c, int d, int f)
-	{
-		double x = sum(a, b, c, d, f);
-		double result = d / x;
-		result *= 100;
-		return result;
-	}
-	public static double FPercentage(int a, int b, int c, int d, int f)
-	{
-		double x = sum(a, b, c, d, f);
-		double result = f / x;
-		result *= 100;
-		return result;
-	}
-	
-	public static void showGrades(int a, int b, int c, int d, int f)
-	{
-		double first = Math.round(APercentage(a, b, c, d, f));
-		first /= 2;
-		if(first % 2 != 0)
-		{
-			first += 1;
-		}
-		for(int i = 0; i<=first; i++)
-		{
-			System.out.print("* ");
-		}
-		System.out.println("A");
-		
-		double second = Math.round(BPercentage(a, b, c, d, f));
-		second /= 2;
-		if(second % 2 != 0)
-		{
-			second += 1;
-		}
-		for(int i = 0; i<=second; i++)
-		{
-			System.out.print("* ");
-		}
-		System.out.println("B");
-		
-		double third = Math.round(CPercentage(a, b, c, d, f));
-		third /= 2;
-		if(third % 2 != 0)
-		{
-			third += 1;
-		}
-		for(int i = 0; i<=third; i++)
-		{
-			System.out.print("* ");
-		}
-		System.out.println("C");
-		
-		double fourth = Math.round(DPercentage(a, b, c, d, f));
-		fourth /= 2;
-		if(fourth % 2 != 0)
-		{
-			fourth += 1;
-		}
-		for(int i = 0; i<=fourth; i++)
-		{
-			System.out.print("* ");
-		}
-		System.out.println("D");
-		
-		double fifth = Math.round(FPercentage(a, b, c, d, f));
-		fifth /= 2;
-		if(fifth % 2 != 0)
-		{
-			fifth += 1;
-		}
-		for(int i = 0; i<=fifth; i++)
-		{
-			System.out.print("* ");
-		}
-		System.out.println("F");
-	}
-
-}
-
 
 }
