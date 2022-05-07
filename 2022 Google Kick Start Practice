@@ -2,41 +2,51 @@ import java.util.Scanner;
 
 public class Centauri_Prime {
 
+  // Create a method to return a name based on what the last letter is
   private static String getRuler(String kingdom) {
-    // TODO: implement this method to determine the ruler name, given the kingdom.
-    String name = "";
-    String ruler = "";
+  
+    // Declare all variables used
+    String name;
+    String ruler;
     
+    // Set one of the strings equal to the last letter of the given parameter
     name = kingdom.substring(kingdom.length()-1);
     
+    // If the last letter is not a vowel, return "Bob"
     if(!(name.equalsIgnoreCase("a")) || 
-    		!(name.equalsIgnoreCase("e")) ||
-        	!(name.equalsIgnoreCase("i")) ||
-        	!(name.equalsIgnoreCase("o")) ||
-        	!(name.equalsIgnoreCase("u")) ||
-        	!(name.equalsIgnoreCase("y")))
-    {
-    	ruler = "Bob";
-    }
+       !(name.equalsIgnoreCase("e")) ||
+       !(name.equalsIgnoreCase("i")) ||
+       !(name.equalsIgnoreCase("o")) ||
+       !(name.equalsIgnoreCase("u")) ||
+       !(name.equalsIgnoreCase("y")))
+    {   
+    	 ruler = "Bob";
+    }   
+    
+    // If the last letter is a vowel, return "Alice"
     if(name.equalsIgnoreCase("a") || 
-    		name.equalsIgnoreCase("e") ||
-        	name.equalsIgnoreCase("i") ||
-        	name.equalsIgnoreCase("o") ||
-        	name.equalsIgnoreCase("u"))
+       name.equalsIgnoreCase("e") ||
+       name.equalsIgnoreCase("i") ||
+       name.equalsIgnoreCase("o") ||
+       name.equalsIgnoreCase("u"))
     {
     	ruler = "Alice";
     }
+    
+    // If the last letter is a 'y', return "nobody"
     if(name.equalsIgnoreCase("y"))
-    {
     	ruler = "nobody";
-    }
+    
     return ruler;
   }
 
   public static void main(String[] args) {
+    // Set up Scanner
     try (Scanner in = new Scanner(System.in)) {
+      // Take user input for the number of test cases
       int T = in.nextInt();
 
+      // Based on the number of test cases, do the getRuler() method accordingly
       for (int t = 1; t <= T; ++t) {
         String kingdom = in.next();
         System.out.println(
