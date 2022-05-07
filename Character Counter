@@ -10,14 +10,20 @@ public class CountChars {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		
+		// Name the Scanner
 		Scanner input = new Scanner(System.in);
+		
+		// Create an int array meant to store the int values of each letter in the alphabet
 		int[] alphabet = new int[26];
 		
+		// Ask for user input with a sentinel period
 		System.out.println("Enter a string ending with a period: ");
 		
+		// Convert user input to all lowercase letters
 		String word = input.nextLine().toLowerCase();
 		
+		// Loop through the string to count the recurrence of letters and store in the alphabet int array
 		for(int i = 0; i<word.length(); i++)
 		{
 			if(word.charAt(i) == '.')
@@ -34,6 +40,7 @@ public class CountChars {
 			}
 		}
 	
+		// Neatly display the results by looping through the alphabet array
 		for(int i = 0; i<alphabet.length; i++)
 		{
 			if(alphabet[i] > 0)
@@ -45,6 +52,8 @@ public class CountChars {
 		
 		System.out.println();
 		
+		// Sum and display the total number of characters by looping through the alphabet array
+		// Looped through the array to disregard and characters after the sentinel period if any
 		int total = 0;
 		for(int i = 0; i<alphabet.length; i++)
 		{
